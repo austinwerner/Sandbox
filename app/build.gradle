@@ -59,4 +59,7 @@ dependencies {
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+    def cardViewVersion = '1.0.0'
+    // Card View
+    implementation "androidx.cardview:cardview:$cardViewVersion"
 }
