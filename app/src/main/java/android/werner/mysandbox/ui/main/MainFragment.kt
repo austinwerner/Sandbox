@@ -8,6 +8,7 @@ import android.werner.mysandbox.R
 import android.werner.mysandbox.Util.TOAST_ID
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -58,10 +59,12 @@ class MainFragment : Fragment() {
     }
 
     private fun handleItemClicked(id: String) {
-        when (id) {
+        val navId = when (id) {
             TOAST_ID -> {
-            
+                R.id.actionMainToToast
             }
+            else -> return // Don't navigate
         }
+        findNavController().navigate(navId)
     }
 }
