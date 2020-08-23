@@ -1,12 +1,11 @@
 package android.werner.mysandbox.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.werner.mysandbox.R
-import android.werner.mysandbox.models.MainListObject
+import android.werner.mysandbox.Util.TOAST_ID
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -39,9 +38,8 @@ class MainFragment : Fragment() {
     private fun setUpRecyclerView() {
         viewManager = LinearLayoutManager(requireContext())
 
-        val myDataset = listOf(MainListObject("thing1","Toasts"), MainListObject("thing2", "Other THing"))
         viewAdapter = MainAdapter(
-            myDataset,
+            viewModel.getData(),
             clickListener = { id -> handleItemClicked(id) }
         )
 
@@ -60,6 +58,10 @@ class MainFragment : Fragment() {
     }
 
     private fun handleItemClicked(id: String) {
-        Log.d("WERNER", "id = $id")
+        when (id) {
+            TOAST_ID -> {
+            
+            }
+        }
     }
 }
