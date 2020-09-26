@@ -36,8 +36,8 @@ class ToastFragment : Fragment() {
     }
 
     private fun handleShortToast() {
-        btn_toast1.text = "Short Toast"
-        btn_toast1.setOnClickListener {
+        btn_snackbar1.text = "Short Toast"
+        btn_snackbar1.setOnClickListener {
             val text = "This is a short toast message!"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(requireContext(), text, duration)
@@ -46,8 +46,8 @@ class ToastFragment : Fragment() {
     }
 
     private fun handleTopToast() {
-        btn_toast2.text = "Top Toast"
-        btn_toast2.setOnClickListener {
+        btn_snackbar2.text = "Top Toast"
+        btn_snackbar2.setOnClickListener {
             val text = "This toast is on the top"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(requireContext(), text, duration)
@@ -57,8 +57,8 @@ class ToastFragment : Fragment() {
     }
 
     private fun handleLeftToast() {
-        btn_toast3.text = "Left Toast"
-        btn_toast3.setOnClickListener {
+        btn_snackbar3.text = "Left Toast"
+        btn_snackbar3.setOnClickListener {
             val text = "This toast is on the left"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(requireContext(), text, duration)
@@ -68,8 +68,8 @@ class ToastFragment : Fragment() {
     }
 
     private fun handleCustomToast() {
-        btn_toast4.text = "Custom Toast"
-        btn_toast4.setOnClickListener {
+        btn_snackbar4.text = "Custom Toast"
+        btn_snackbar4.setOnClickListener {
             val layout = layoutInflater.inflate(R.layout.custom_toast, custom_toast_container)
             layout.tv_toast_title.text = "A custom toast woohoo!"
             with (Toast(requireActivity().applicationContext)) {

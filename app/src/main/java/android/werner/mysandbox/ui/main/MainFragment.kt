@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.werner.mysandbox.R
+import android.werner.mysandbox.Util.SNACKBAR_ID
 import android.werner.mysandbox.Util.TOAST_ID
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,10 +21,6 @@ class MainFragment : Fragment() {
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private val viewModel: MainViewModel by viewModels()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -62,6 +59,9 @@ class MainFragment : Fragment() {
         val navId = when (id) {
             TOAST_ID -> {
                 R.id.actionMainToToast
+            }
+            SNACKBAR_ID -> {
+                R.id.actionMainToSnackbar
             }
             else -> return // Don't navigate
         }

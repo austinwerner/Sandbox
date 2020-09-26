@@ -14,11 +14,23 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-
+        <action
+            android:id="@+id/actionMainToSnackbar"
+            app:destination="@+id/snackbar_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
     <fragment
         android:id="@+id/toast_fragment"
         android:name="android.werner.mysandbox.ui.main.ToastFragment"
         android:label="ToastFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/snackbar_fragment"
+        android:name="android.werner.mysandbox.ui.main.SnackbarFragment"
+        android:label="SnackbarFragment">
     </fragment>
 </navigation>
