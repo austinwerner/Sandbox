@@ -5,19 +5,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.werner.mysandbox.R
 import android.werner.mysandbox.models.MainListObject
-import androidx.recyclerview.widget.RecyclerView
+import com.thesurix.gesturerecycler.GestureAdapter
+import com.thesurix.gesturerecycler.GestureViewHolder
 import kotlinx.android.synthetic.main.main_list.view.*
 
-class MainAdapter(private val myDataset: List<MainListObject>,
-    private val clickListener: (String) -> Unit) :
-    RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
+class MainAdapter(private val clickListener: (String) -> Unit) :
+    GestureAdapter<MainListObject, GestureViewHolder<MainListObject>>() {
 
-    class MyViewHolder(val view: View) :
-        RecyclerView.ViewHolder(view)
+    class MyViewHolder(view: View) :
+        GestureViewHolder<MainListObject>(view) {
+        override fun canDrag(): Boolean {
+            return true
+        }
+
+        override fun canSwipe(): Boolean {
+            return true
+        }
+
+        override fun bind(item: MainListObject) {
+            itemView.tv_main_list_title.text = item.title
+        }
+    }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MyViewHolder {
+                                    viewType: Int): GestureViewHolder<MainListObject> {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.main_list, parent, false)
 
@@ -25,14 +37,18 @@ class MainAdapter(private val myDataset: List<MainListObject>,
     }
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.view.tv_main_list_title.text = myDataset[position].title
-        holder.view.setOnClickListener{
-            clickListener.invoke(myDataset[position].id)
+    override fun onBindViewHolder(holder: GestureViewHolder<MainListObject>, position: Int) {
+        holder.itemView.tv_main_list_title.text = data[position].title
+        holder.itemView.setOnClickListener{
+            clickListener.invoke(data[position].id)
         }
     }
 
+    override fun getItemViewType(viewPosition: Int): Int {
+        return R.layout.main_list
+    }
+
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = myDataset.size
+    override fun getItemCount() = data.size
 
 }

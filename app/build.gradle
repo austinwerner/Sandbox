@@ -62,4 +62,7 @@ dependencies {
     def cardViewVersion = '1.0.0'
     // Card View
     implementation "androidx.cardview:cardview:$cardViewVersion"
+
+    def gestureRecyclerViewVersion = '1.13.0'
+    implementation 'com.thesurix.gesturerecycler:gesture-recycler:1.13.0'
 }
