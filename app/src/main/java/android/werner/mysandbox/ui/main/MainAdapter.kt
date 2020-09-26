@@ -28,11 +28,11 @@ class MainAdapter(private val clickListener: (String) -> Unit) :
         }
 
         override fun onItemClear() {
-            itemView.foreground = null
+            itemView.background =  ContextCompat.getDrawable(itemView.context, R.color.white)
         }
 
         override fun onItemSelect() {
-            itemView.foreground = ContextCompat.getDrawable(itemView.context, R.drawable.item_select_foreground)
+            itemView.background = ContextCompat.getDrawable(itemView.context, R.drawable.item_select_foreground)
         }
     }
 
