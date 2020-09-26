@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.werner.mysandbox.R
 import android.werner.mysandbox.models.MainListObject
+import androidx.core.content.ContextCompat
 import com.thesurix.gesturerecycler.GestureAdapter
 import com.thesurix.gesturerecycler.GestureViewHolder
 import kotlinx.android.synthetic.main.main_list.view.*
@@ -24,6 +25,14 @@ class MainAdapter(private val clickListener: (String) -> Unit) :
 
         override fun bind(item: MainListObject) {
             itemView.tv_main_list_title.text = item.title
+        }
+
+        override fun onItemClear() {
+            itemView.foreground = null
+        }
+
+        override fun onItemSelect() {
+            itemView.foreground = ContextCompat.getDrawable(itemView.context, R.drawable.item_select_foreground)
         }
     }
 

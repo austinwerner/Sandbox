@@ -20,6 +20,7 @@ import com.thesurix.gesturerecycler.DefaultItemClickListener
 import com.thesurix.gesturerecycler.GestureAdapter
 import com.thesurix.gesturerecycler.GestureManager
 import com.thesurix.gesturerecycler.RecyclerItemTouchListener
+import com.thesurix.gesturerecycler.util.swap
 import kotlinx.android.synthetic.main.main_fragment.*
 
 
@@ -93,6 +94,7 @@ class MainFragment : Fragment() {
 
             override fun onItemReorder(item: MainListObject, fromPos: Int, toPos: Int) {
                 Snackbar.make(view!!, "Month moved from position $fromPos to $toPos", Snackbar.LENGTH_SHORT).show()
+                viewAdapter.data.swap(fromPos, toPos)
             }
         })
     }

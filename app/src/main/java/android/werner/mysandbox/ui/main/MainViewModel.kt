@@ -9,7 +9,8 @@ class MainViewModel : ViewModel() {
     fun getData(): List<MainListObject> {
         return listOf(
             MainListObject(TOAST_ID),
-            MainListObject(SNACKBAR_ID)
+            MainListObject(SNACKBAR_ID),
+            MainListObject(TEST_BLANK_ID)
         )
     }
 }
